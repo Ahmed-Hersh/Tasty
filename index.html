@@ -128,7 +128,7 @@
         }
         
         .card-image {
-            height: 180px;
+            height: 150px;
             overflow: hidden;
         }
         
@@ -178,10 +178,14 @@
             color: #555;
         }
         
-        .order-btn {
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .order-btn, .add-to-cart {
             display: inline-block;
-            background-color: var(--section-color);
-            color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
@@ -189,15 +193,136 @@
             font-family: 'Tajawal', sans-serif;
             font-weight: 700;
             font-size: 1rem;
-            margin-top: auto;
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
+            flex: 1;
         }
         
-        .order-btn:hover {
+        .order-btn {
+            background-color: var(--section-color);
+            color: white;
+        }
+        
+        .add-to-cart {
             background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .order-btn:hover, .add-to-cart:hover {
             transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        
+        /* سلة التسوق */
+        .cart-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .cart-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--dark-color);
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .cart-panel {
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            width: 350px;
+            max-height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            overflow-y: auto;
+            display: none;
+            z-index: 999;
+        }
+        
+        .cart-panel.show {
+            display: block;
+        }
+        
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 700;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-color);
+        }
+        
+        .cart-item-remove {
+            color: #ff0000;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        .cart-total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: left;
+            padding: 10px 0;
+        }
+        
+        .checkout-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            width: 100%;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #4CAF50;
         }
         
         footer {
@@ -242,6 +367,11 @@
             
             .menu-section h2 {
                 font-size: 1.5rem;
+            }
+            
+            .cart-panel {
+                width: 300px;
+                max-height: 400px;
             }
         }
         
@@ -292,43 +422,52 @@
             <div class="menu-grid">
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيتزا دجاج">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="بيتزا دجاج">
                     </div>
                     <div class="card-header">
                         <h3>بيتزا دجاج</h3>
-                        <span class="price">15,000 دينار</span>
+                        <span class="price">5,000 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>بيتزا بالدجاج الطري مع الجبنة الذائبة وصلصة الطماطم والأعشاب الإيطالية</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="بيتزا دجاج" data-price="5000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيتزا لحم">
+                        <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="بيتزا لحم">
                     </div>
                     <div class="card-header">
                         <h3>بيتزا لحم</h3>
-                        <span class="price">18,000 دينار</span>
+                        <span class="price">6,000 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>بيتزا باللحم الطازج مع الفطر والجبنة الموزاريلا والفلفل الأخضر</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="بيتزا لحم" data-price="6000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيتزا تيستي">
+                        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="بيتزا تيستي">
                     </div>
                     <div class="card-header">
                         <h3>بيتزا تيستي</h3>
-                        <span class="price">20,000 دينار</span>
+                        <span class="price">7,000 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>مزيج خاص من الدجاج واللحم مع الصلصة الخاصة والفطر والزيتون</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="بيتزا تيستي" data-price="7000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -339,57 +478,69 @@
             <div class="menu-grid">
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="برغر لحم">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="برغر لحم">
                     </div>
                     <div class="card-header">
                         <h3>برغر لحم</h3>
-                        <span class="price">12,000 دينار</span>
+                        <span class="price">4,000 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>برغر لحم طازج 150غ مع الخضار والصلصة الخاصة في خبز طري</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="برغر لحم" data-price="4000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="كص لحم">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="كص لحم">
                     </div>
                     <div class="card-header">
                         <h3>كص لحم</h3>
-                        <span class="price">14,000 دينار</span>
+                        <span class="price">3,500 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>ساندويش لحم مشوي مع الخضار الطازجة والمايونيز والصلصة الخاصة</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="كص لحم" data-price="3500">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="كص دجاج">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="كص دجاج">
                     </div>
                     <div class="card-header">
                         <h3>كص دجاج</h3>
-                        <span class="price">13,000 دينار</span>
+                        <span class="price">3,500 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>ساندويش دجاج مشوي مع الخضار والثومية وصلصة الزبادي</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="كص دجاج" data-price="3500">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="صاج دجاج">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="صاج دجاج">
                     </div>
                     <div class="card-header">
                         <h3>صاج دجاج</h3>
-                        <span class="price">16,000 دينار</span>
+                        <span class="price">4,000 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>دجاج صاج مع الخضار والصلصة الخاصة، يُقدم مع الخبز الطازج</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="صاج دجاج" data-price="4000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -400,43 +551,35 @@
             <div class="menu-grid">
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="3 قطع صدر دجاج مع فنگر">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="3 قطع صدر دجاج مع فنگر">
                     </div>
                     <div class="card-header">
                         <h3>3 قطع صدر دجاج مع فنگر</h3>
-                        <span class="price">22,000 دينار</span>
+                        <span class="price">4,000 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>قطع دجاج مشوية مع أصابع البطاطس المقرمشة، تُقدم مع الخبز والصلصة</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="3 قطع صدر دجاج مع فنگر" data-price="4000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="تاكو">
+                        <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="تاكو">
                     </div>
                     <div class="card-header">
                         <h3>تاكو</h3>
-                        <span class="price">18,000 دينار</span>
+                        <span class="price">6,000 دينار</span>
                     </div>
                     <div class="card-body">
                         <p>تاكو لحم أو دجاج مع الخضار والصلصة المكسيكية الحارة</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="سلة مشاوي">
-                    </div>
-                    <div class="card-header">
-                        <h3>سلة مشاوي</h3>
-                        <span class="price">25,000 دينار</span>
-                    </div>
-                    <div class="card-body">
-                        <p>مزيج من اللحوم المشوية مع الخضار والبطاطس المشوية</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="تاكو" data-price="6000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -447,7 +590,7 @@
             <div class="menu-grid">
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيبسي">
+                        <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="بيبسي">
                     </div>
                     <div class="card-header">
                         <h3>بيبسي</h3>
@@ -455,13 +598,16 @@
                     </div>
                     <div class="card-body">
                         <p>مشروب غازي منعش بحجم 330 مل</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="بيبسي" data-price="2000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1571805618149-3a772570ebcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="مقبلات">
+                        <img src="https://images.unsplash.com/photo-1571805618149-3a772570ebcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="مقبلات">
                     </div>
                     <div class="card-header">
                         <h3>مقبلات</h3>
@@ -469,13 +615,16 @@
                     </div>
                     <div class="card-body">
                         <p>تشكيلة من المقبلات الشهية (بطاطس، زيتون، مخللات)</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="مقبلات" data-price="3000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="menu-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="فريش">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="فريش">
                     </div>
                     <div class="card-header">
                         <h3>فريش</h3>
@@ -483,26 +632,31 @@
                     </div>
                     <div class="card-body">
                         <p>عصير طازج حسب الموسم (برتقال، ليمون، فراولة)</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="قهوة">
-                    </div>
-                    <div class="card-header">
-                        <h3>قهوة عربية</h3>
-                        <span class="price">3,500 دينار</span>
-                    </div>
-                    <div class="card-body">
-                        <p>قهوة عربية أصيلة تُقدم مع التمر</p>
-                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                        <div class="card-actions">
+                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                            <button class="add-to-cart" data-name="فريش" data-price="4000">أضف للسلة</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    
+    <!-- سلة التسوق -->
+    <div class="cart-container">
+        <button class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </button>
+        <div class="cart-panel">
+            <h3>سلة التسوق</h3>
+            <div class="cart-items">
+                <!-- سيتم إضافة العناصر هنا عبر الجافاسكريبت -->
+            </div>
+            <div class="cart-total">المجموع: 0 دينار</div>
+            <button class="checkout-btn">إتمام الطلب</button>
+        </div>
+    </div>
     
     <footer>
         <div class="container">
@@ -524,6 +678,142 @@
     </footer>
 
     <script>
+        // سلة التسوق
+        let cart = [];
+        const cartBtn = document.querySelector('.cart-btn');
+        const cartPanel = document.querySelector('.cart-panel');
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const cartTotal = document.querySelector('.cart-total');
+        const cartCount = document.querySelector('.cart-count');
+        
+        // عرض/إخفاء سلة التسوق
+        cartBtn.addEventListener('click', () => {
+            cartPanel.classList.toggle('show');
+        });
+        
+        // إضافة عنصر إلى السلة
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const name = e.target.getAttribute('data-name');
+                const price = parseInt(e.target.getAttribute('data-price'));
+                
+                // التحقق مما إذا كان العنصر موجودًا بالفعل في السلة
+                const existingItem = cart.find(item => item.name === name);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                showAddedToCartMessage(name);
+            });
+        });
+        
+        // تحديث سلة التسوق
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name} × ${item.quantity}</div>
+                        <div class="cart-item-price">${itemTotal.toLocaleString()} دينار</div>
+                    </div>
+                    <div class="cart-item-remove" data-name="${item.name}">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            
+            cartTotal.textContent = `المجموع: ${total.toLocaleString()} دينار`;
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+        
+        // إزالة عنصر من السلة
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('cart-item-remove') || e.target.closest('.cart-item-remove')) {
+                const removeBtn = e.target.classList.contains('cart-item-remove') ? 
+                    e.target : e.target.closest('.cart-item-remove');
+                const itemName = removeBtn.getAttribute('data-name');
+                
+                cart = cart.filter(item => item.name !== itemName);
+                updateCart();
+            }
+        });
+        
+        // إتمام الطلب
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('السلة فارغة، يرجى إضافة بعض العناصر أولاً');
+                return;
+            }
+            
+            const orderItems = cart.map(item => 
+                `${item.name} (${item.quantity} × ${item.price.toLocaleString()})`
+            ).join('\n');
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            const message = `مرحباً، أريد طلب:\n${orderItems}\n\nالمجموع: ${total.toLocaleString()} دينار`;
+            
+            // يمكنك هنا إما فتح تطبيق الواتساب أو إرسال رسالة SMS
+            // هذا مثال لإرسال رسالة عبر واتساب
+            window.open(`https://wa.me/964770123636?text=${encodeURIComponent(message)}`, '_blank');
+        });
+        
+        // رسالة تأكيد الإضافة للسلة
+        function showAddedToCartMessage(itemName) {
+            const message = document.createElement('div');
+            message.textContent = `تمت إضافة ${itemName} إلى السلة`;
+            message.style.position = 'fixed';
+            message.style.bottom = '160px';
+            message.style.left = '20px';
+            message.style.backgroundColor = '#4CAF50';
+            message.style.color = 'white';
+            message.style.padding = '10px 20px';
+            message.style.borderRadius = '5px';
+            message.style.zIndex = '1000';
+            message.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+            message.style.animation = 'fadeInOut 3s ease-in-out';
+            
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.style.animation = 'fadeOut 0.5s ease-out';
+                setTimeout(() => message.remove(), 500);
+            }, 2500);
+        }
+        
+        // إضافة أنيميشن للرسالة
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translateY(20px); }
+                20% { opacity: 1; transform: translateY(0); }
+                80% { opacity: 1; transform: translateY(0); }
+                100% { opacity: 0; transform: translateY(20px); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
