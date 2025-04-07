@@ -30,14 +30,14 @@
             background-color: #f5f5f5;
             color: var(--dark-color);
             line-height: 1.6;
-            font-size: 0.8rem; /* حجم الخط العام */
+            font-size: 0.9rem; /* زيادة حجم الخط العام قليلاً */
         }
         
         .container {
-            width: 90%;
+            width: 95%; /* زيادة العرض قليلاً للهواتف */
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 10px;
         }
         
         header {
@@ -53,6 +53,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 5px;
         }
         
         .logo {
@@ -61,17 +62,17 @@
         
         .logo h1 {
             color: var(--primary-color);
-            font-size: 1rem; /* حجم الخط 10px تقريباً */
+            font-size: 1.2rem; /* تكبير حجم العنوان إلى ~14px */
             font-weight: 900;
             margin-bottom: 2px;
         }
         
         .logo p {
             color: var(--dark-color);
-            font-size: 0.7rem;
+            font-size: 0.8rem;
         }
         
-        /* قائمة الروابط العلوية */
+        /* قائمة الروابط العلوية - تعديل شكل الهامبرجر */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -80,17 +81,29 @@
         .dropbtn {
             background-color: transparent;
             color: var(--dark-color);
-            padding: 5px 10px;
+            padding: 5px;
             border: none;
             cursor: pointer;
             font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dropbtn .bar {
+            width: 20px;
+            height: 2px;
+            background-color: var(--dark-color);
+            border-radius: 2px;
         }
         
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: white;
-            min-width: 120px;
+            min-width: 140px;
             box-shadow: var(--shadow);
             z-index: 1;
             right: 0;
@@ -119,21 +132,22 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             padding: 5px 0;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
-            font-size: 0.8rem; /* حجم خط القوائم */
+            font-size: 0.8rem;
         }
         
         nav a {
             text-decoration: none;
             color: var(--dark-color);
             font-weight: 700;
-            padding: 3px 8px;
+            padding: 3px 6px;
             border-radius: 5px;
             transition: all 0.3s ease;
+            white-space: nowrap; /* منع تكسر النص */
         }
         
         nav a:hover {
@@ -142,8 +156,8 @@
         }
         
         .menu-section {
-            margin: 20px 0;
-            padding: 15px;
+            margin: 15px 0;
+            padding: 12px;
             border-radius: 10px;
             background-color: #fff;
             box-shadow: var(--shadow);
@@ -151,8 +165,8 @@
         
         .menu-section h2 {
             color: var(--section-color);
-            font-size: 1rem;
-            margin-bottom: 15px;
+            font-size: 1.1rem; /* تكبير حجم العناوين */
+            margin-bottom: 12px;
             padding-bottom: 5px;
             border-bottom: 2px dashed var(--section-color);
             display: flex;
@@ -206,7 +220,7 @@
         }
         
         .card-header h3 {
-            font-size: 0.8rem; /* حجم خط المواد */
+            font-size: 0.85rem;
             font-weight: 700;
         }
         
@@ -216,7 +230,8 @@
             padding: 2px 6px;
             border-radius: 15px;
             font-weight: 700;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
         }
         
         .card-body {
@@ -229,7 +244,8 @@
         .card-body p {
             margin-bottom: 8px;
             color: #555;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
+            line-height: 1.5;
         }
         
         .card-actions {
@@ -246,7 +262,7 @@
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
             font-weight: 700;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
@@ -281,9 +297,9 @@
             color: white;
             border: none;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 1rem;
+            width: 50px;
+            height: 50px;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -299,12 +315,12 @@
             background-color: var(--dark-color);
             color: white;
             border-radius: 50%;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
         }
         
         .cart-panel {
@@ -320,7 +336,7 @@
             overflow-y: auto;
             display: none;
             z-index: 999;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
         
         .cart-panel.show {
@@ -345,10 +361,12 @@
         
         .cart-item-name {
             font-weight: 700;
+            font-size: 0.8rem;
         }
         
         .cart-item-price {
             color: var(--primary-color);
+            font-size: 0.8rem;
         }
         
         .cart-item-remove {
@@ -375,7 +393,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
         
         .checkout-btn:hover {
@@ -387,7 +405,7 @@
             color: white;
             padding: 15px 0 8px;
             margin-top: 20px;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
         }
         
         .contact-info {
@@ -395,7 +413,7 @@
         }
         
         .contact-info h3 {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 8px;
             color: var(--primary-color);
         }
@@ -405,22 +423,52 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            font-size: 0.8rem;
         }
         
         .copyright {
             text-align: center;
             padding-top: 8px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.75rem;
         }
         
-        @media (max-width: 768px) {
-            .menu-grid {
-                grid-template-columns: 1fr;
+        /* تحسينات للهواتف الصغيرة */
+        @media (max-width: 480px) {
+            .container {
+                width: 98%;
+                padding: 0 5px;
             }
             
-            .dropdown-content {
-                right: auto;
-                left: 0;
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .card-image {
+                height: 120px;
+            }
+            
+            nav ul {
+                gap: 5px;
+                font-size: 0.75rem;
+            }
+            
+            nav a {
+                padding: 3px 5px;
+            }
+            
+            .logo h1 {
+                font-size: 1.1rem;
+            }
+            
+            .logo p {
+                font-size: 0.75rem;
+            }
+            
+            .cart-panel {
+                width: 260px;
+                left: 10px;
             }
         }
         
@@ -456,9 +504,13 @@
                     <p>ألذ وجبات سريعة في كركوك</p>
                 </div>
                 
-                <!-- زر القائمة العلوية -->
+                <!-- زر القائمة العلوية - شكل هامبرجر -->
                 <div class="dropdown">
-                    <button class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
+                    <button class="dropbtn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
                     <div class="dropdown-content">
                         <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
                         <a href="#"><i class="fas fa-map-marker-alt"></i> موقع المطعم</a>
