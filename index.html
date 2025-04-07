@@ -3,76 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قائمة البيتزا | Tasty FastFood</title>
+    <title>قائمة الطعام | Tasty FastFood</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Tasty FastFood</h1>
-            <p>أشهى البيتزا في كركوك</p>
+            <div class="logo">
+                <h1>Tasty FastFood</h1>
+                <p>ألذ وجبات سريعة في كركوك</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#pizza">البيتزا</a></li>
+                    <li><a href="#meals">الوجبات</a></li>
+                    <li><a href="#special">السبيشل</a></li>
+                    <li><a href="#drinks">المشروبات</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     
     <main class="container">
-        <section class="pizza-menu">
-            <!-- بيتزا دجاج -->
-            <div class="pizza-item">
-                <div class="pizza-image" style="background-image: url('images/chicken-pizza.jpg');">
-                    <span class="pizza-price">5,000 دينار</span>
+        <section id="pizza" class="menu-section" style="--section-color: #FF9F43;">
+            <h2><span>🍕</span> قسم البيتزا</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #FF9F43;">
+                        <h3>بيتزا دجاج</h3>
+                        <span class="price">15,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>بيتزا بالدجاج الطري مع الجبنة الذائبة</p>
+                    </div>
                 </div>
-                <div class="pizza-details">
-                    <h2>بيتزا دجاج</h2>
-                    <p>دجاج وخضروات وصوص وجبن</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-cart-plus"></i> إضافة إلى السلة
-                    </button>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #FF9F43;">
+                        <h3>بيتزا لحم</h3>
+                        <span class="price">18,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>بيتزا باللحم الطازج مع الخضار</p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- بيتزا لحم -->
-            <div class="pizza-item">
-                <div class="pizza-image" style="background-image: url('images/meat-pizza.jpg');">
-                    <span class="pizza-price">6,000 دينار</span>
-                </div>
-                <div class="pizza-details">
-                    <h2>بيتزا لحم</h2>
-                    <p>لحم وخضروات وصوص وجبن</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-cart-plus"></i> إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-            
-            <!-- بيتزا ماركريتا -->
-            <div class="pizza-item">
-                <div class="pizza-image" style="background-image: url('images/margherita-pizza.jpg');">
-                    <span class="pizza-price">4,000 دينار</span>
-                </div>
-                <div class="pizza-details">
-                    <h2>بيتزا ماركريتا</h2>
-                    <p>صوص وجبن</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-cart-plus"></i> إضافة إلى السلة
-                    </button>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #FF9F43;">
+                        <h3>بيتزا تيستي</h3>
+                        <span class="price">20,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>مزيج خاص من الدجاج واللحم مع الصلصة الخاصة</p>
+                    </div>
                 </div>
             </div>
-            
-            <!-- بيتزا مشكل -->
-            <div class="pizza-item">
-                <div class="pizza-image" style="background-image: url('images/mixed-pizza.jpg');">
-                    <span class="pizza-price">6,000 دينار</span>
+        </section>
+        
+        <section id="meals" class="menu-section" style="--section-color: #FF6B6B;">
+            <h2><span>🍔</span> قسم الوجبات</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #FF6B6B;">
+                        <h3>برغر لحم</h3>
+                        <span class="price">12,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>برغر لحم طازج مع الخضار والصلصة</p>
+                    </div>
                 </div>
-                <div class="pizza-details">
-                    <h2>بيتزا مشكل</h2>
-                    <p>لحم وخضروات وصوص وجبن</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-cart-plus"></i> إضافة إلى السلة
-                    </button>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #FF6B6B;">
+                        <h3>كص لحم</h3>
+                        <span class="price">14,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>ساندويش لحم مشوي مع الخضار</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #FF6B6B;">
+                        <h3>كص دجاج</h3>
+                        <span class="price">13,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>ساندويش دجاج مشوي مع الخضار</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #FF6B6B;">
+                        <h3>صاج دجاج</h3>
+                        <span class="price">16,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>دجاج صاج مع الخضار والصلصة الخاصة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="special" class="menu-section" style="--section-color: #6BCB77;">
+            <h2><span>🌟</span> قسم سبيشل</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #6BCB77;">
+                        <h3>3 قطع صدر دجاج مع فنگر</h3>
+                        <span class="price">22,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>قطع دجاج مشوية مع أصابع البطاطس المقرمشة</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #6BCB77;">
+                        <h3>تاكو</h3>
+                        <span class="price">18,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>تاكو لحم أو دجاج مع الخضار والصلصة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="drinks" class="menu-section" style="--section-color: #4D96FF;">
+            <h2><span>🥤</span> قسم المشروبات والمقبلات</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #4D96FF;">
+                        <h3>بيبسي</h3>
+                        <span class="price">2,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>مشروب غازي منعش</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #4D96FF;">
+                        <h3>مقبلات</h3>
+                        <span class="price">3,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>تشكيلة من المقبلات الشهية</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="card-header" style="background-color: #4D96FF;">
+                        <h3>فريش</h3>
+                        <span class="price">4,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>عصير طازج حسب الموسم</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -81,8 +172,10 @@
     <footer>
         <div class="container">
             <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> العنوان: كركوك - سوق الحصير</p>
-                <p><i class="fas fa-phone"></i> الهاتف: 0770123636</p>
+                <h3>تواصل معنا</h3>
+                <p><span>📍</span> العنوان: كركوك - سوق الحصير</p>
+                <p><span>📞</span> الهاتف: 0770123636</p>
+                <p><span>⏰</span> أوقات العمل: 10 صباحاً - 12 منتصف الليل</p>
             </div>
             <div class="copyright">
                 <p>© 2023 Tasty FastFood. جميع الحقوق محفوظة</p>
