@@ -1,136 +1,170 @@
-/* تحسينات متقدمة على CSS */
-
-/* تأثيرات الحركة */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* متغيرات الألوان */
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #c0392b;
+    --light-color: #f9f9f9;
+    --dark-color: #333;
+    --text-color: #333;
+    --white: #fff;
 }
 
-.menu-section {
-  animation: fadeIn 0.6s ease-out forwards;
+/* الأساسيات */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* تحسينات البطاقات */
-.menu-card {
-  position: relative;
-  overflow: hidden;
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-.menu-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-  z-index: 1;
-  transition: all 0.3s ease;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-.menu-card:hover::before {
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+/* الترويسة */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* أزرار الطلب */
-.order-btn {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.order-btn:hover {
-  background-color: var(--dark-color);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
-/* تأثيرات خاصة للعناوين */
-.section-title {
-  position: relative;
-  padding-bottom: 0.8rem;
+/* قائمة البيتزا */
+.pizza-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background-color: var(--section-color);
-  border-radius: 3px;
+.pizza-item {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* تحسينات للهاتف */
-@media (max-width: 480px) {
-  .logo h1 {
-    font-size: 1.6rem;
-  }
-  
-  nav a {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-  
-  .menu-section {
-    padding: 1rem;
-  }
-  
-  .card-header h3 {
+.pizza-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pizza-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.pizza-price {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
     font-size: 1.1rem;
-  }
-  
-  .price {
+}
+
+.pizza-details {
+    padding: 1.5rem;
+}
+
+.pizza-details h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.pizza-details p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.add-to-cart {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
     font-size: 1rem;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-/* تأثيرات التحميل */
-.loading-effect {
-  position: relative;
-  overflow: hidden;
+.add-to-cart:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
-.loading-effect::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  animation: loading 1.5s infinite;
+/* التذييل */
+footer {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 2rem 0;
+    margin-top: 3rem;
 }
 
-@keyframes loading {
-  100% { left: 100%; }
+.contact-info {
+    margin-bottom: 1.5rem;
 }
 
-/* طبقة overlay للصور */
-.img-overlay {
-  position: relative;
+.contact-info p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
-.img-overlay::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    text-align: center;
+    opacity: 0.8;
+    font-size: 0.9rem;
 }
 
-.img-overlay:hover::after {
-  background: rgba(0,0,0,0.1);
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .pizza-menu {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
 }
