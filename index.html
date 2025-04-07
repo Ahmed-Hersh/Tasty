@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قائمة الطعام | Tasty FastFood</title>
+    <title>قائمة الطعام | ألذ الأطعمة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,39 +45,67 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 15px 0;
+            padding: 10px 0;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
         
         .logo {
             text-align: center;
-            margin-bottom: 15px;
         }
         
         .logo h1 {
             color: var(--primary-color);
-            font-size: 2.2rem;
+            font-size: 1.8rem; /* تعديل حجم الخط كما طلبت */
             font-weight: 900;
             margin-bottom: 5px;
         }
         
         .logo p {
             color: var(--dark-color);
-            font-size: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .top-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .top-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .top-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255, 107, 107, 0.1);
         }
         
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
         
         nav a {
             text-decoration: none;
             color: var(--dark-color);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem; /* تعديل حجم الخط كما طلبت */
             padding: 5px 10px;
             border-radius: 5px;
             transition: all 0.3s ease;
@@ -89,32 +117,32 @@
         }
         
         .menu-section {
-            margin: 40px 0;
-            padding: 20px;
-            border-radius: 15px;
+            margin: 30px 0;
+            padding: 15px;
+            border-radius: 10px;
             background-color: #fff;
             box-shadow: var(--shadow);
         }
         
         .menu-section h2 {
             color: var(--section-color);
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
             border-bottom: 2px dashed var(--section-color);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr); /* تعديل لتصبح ثنائية الأعمدة */
+            gap: 15px;
         }
         
         .menu-card {
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
@@ -124,11 +152,11 @@
         }
         
         .menu-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
         .card-image {
-            height: 150px;
+            height: 120px; /* تصغير حجم الصور */
             overflow: hidden;
         }
         
@@ -144,7 +172,7 @@
         }
         
         .card-header {
-            padding: 15px;
+            padding: 10px;
             background-color: var(--section-color);
             color: white;
             display: flex;
@@ -153,46 +181,47 @@
         }
         
         .card-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
         }
         
         .price {
             background-color: white;
             color: var(--section-color);
-            padding: 5px 10px;
-            border-radius: 20px;
+            padding: 3px 8px;
+            border-radius: 15px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .card-body {
-            padding: 15px;
+            padding: 10px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
         
         .card-body p {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #555;
+            font-size: 0.9rem;
         }
         
         .card-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-top: auto;
         }
         
         .order-btn, .add-to-cart {
             display: inline-block;
             border: none;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
@@ -227,9 +256,9 @@
             color: white;
             border: none;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -245,24 +274,24 @@
             background-color: var(--dark-color);
             color: white;
             border-radius: 50%;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
         
         .cart-panel {
             position: fixed;
-            bottom: 90px;
+            bottom: 80px;
             left: 20px;
-            width: 350px;
-            max-height: 500px;
+            width: 300px;
+            max-height: 400px;
             background-color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: var(--shadow);
-            padding: 20px;
+            padding: 15px;
             overflow-y: auto;
             display: none;
             z-index: 999;
@@ -273,15 +302,16 @@
         }
         
         .cart-items {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
         }
         
         .cart-item-info {
@@ -299,26 +329,28 @@
         .cart-item-remove {
             color: #ff0000;
             cursor: pointer;
-            margin-right: 10px;
+            margin-right: 8px;
+            font-size: 0.9rem;
         }
         
         .cart-total {
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-align: left;
-            padding: 10px 0;
+            padding: 8px 0;
         }
         
         .checkout-btn {
             background-color: var(--accent-color);
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             width: 100%;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
         
         .checkout-btn:hover {
@@ -328,50 +360,48 @@
         footer {
             background-color: var(--dark-color);
             color: white;
-            padding: 30px 0 15px;
-            margin-top: 40px;
+            padding: 20px 0 10px;
+            margin-top: 30px;
         }
         
         .contact-info {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: var(--primary-color);
         }
         
         .contact-info p {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 0.9rem;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 15px;
+            padding-top: 10px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 1.8rem;
+            .header-top {
+                flex-direction: column;
+                gap: 10px;
             }
             
             .menu-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: 1fr;
             }
             
-            .menu-section h2 {
-                font-size: 1.5rem;
-            }
-            
-            .cart-panel {
-                width: 300px;
-                max-height: 400px;
+            .top-links {
+                justify-content: center;
+                flex-wrap: wrap;
             }
         }
         
@@ -401,9 +431,16 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">
-                <h1>Tasty FastFood</h1>
-                <p>ألذ وجبات سريعة في كركوك</p>
+            <div class="header-top">
+                <div class="logo">
+                    <h1>ألذ الأطعمة</h1>
+                    <p>ألذ وجبات سريعة في كركوك</p>
+                </div>
+                <div class="top-links">
+                    <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> موقع المطعم</a>
+                    <a href="#"><i class="fas fa-phone-alt"></i> تواصل معنا</a>
+                </div>
             </div>
             <nav>
                 <ul>
@@ -665,14 +702,14 @@
                 <p><span>📍</span> العنوان: كركوك - سوق الحصير</p>
                 <p><span>📞</span> الهاتف: 0770123636</p>
                 <p><span>⏰</span> أوقات العمل: 10 صباحاً - 12 منتصف الليل</p>
-                <div class="social-links" style="margin-top: 15px; display: flex; gap: 15px;">
-                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                <div class="social-links" style="margin-top: 10px; display: flex; gap: 10px; justify-content: center;">
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2023 Tasty FastFood. جميع الحقوق محفوظة</p>
+                <p>© 2023 ألذ الأطعمة. جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
@@ -784,7 +821,7 @@
             message.style.left = '20px';
             message.style.backgroundColor = '#4CAF50';
             message.style.color = 'white';
-            message.style.padding = '10px 20px';
+            message.style.padding = '8px 15px';
             message.style.borderRadius = '5px';
             message.style.zIndex = '1000';
             message.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
