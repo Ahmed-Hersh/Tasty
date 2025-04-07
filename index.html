@@ -4,10 +4,269 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قائمة الطعام | Tasty FastFood</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #FF9F43;
+            --accent-color: #6BCB77;
+            --drink-color: #4D96FF;
+            --dark-color: #333;
+            --light-color: #f9f9f9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        
+        .logo p {
+            color: var(--dark-color);
+            font-size: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .menu-section {
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: var(--shadow);
+        }
+        
+        .menu-section h2 {
+            color: var(--section-color);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed var(--section-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .menu-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .menu-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-header {
+            padding: 15px;
+            background-color: var(--section-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .price {
+            background-color: white;
+            color: var(--section-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .card-body {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-body p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .order-btn {
+            display: inline-block;
+            background-color: var(--section-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: auto;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .order-btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0 15px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            margin-bottom: 25px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .menu-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animation for section when scrolled to */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .menu-section {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .menu-section:nth-child(1) { animation-delay: 0.1s; }
+        .menu-section:nth-child(2) { animation-delay: 0.2s; }
+        .menu-section:nth-child(3) { animation-delay: 0.3s; }
+        .menu-section:nth-child(4) { animation-delay: 0.4s; }
+    </style>
 </head>
 <body>
     <header>
@@ -18,10 +277,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#pizza">البيتزا</a></li>
-                    <li><a href="#meals">الوجبات</a></li>
-                    <li><a href="#special">السبيشل</a></li>
-                    <li><a href="#drinks">المشروبات</a></li>
+                    <li><a href="#pizza"><i class="fas fa-pizza-slice"></i> البيتزا</a></li>
+                    <li><a href="#meals"><i class="fas fa-hamburger"></i> الوجبات</a></li>
+                    <li><a href="#special"><i class="fas fa-star"></i> السبيشل</a></li>
+                    <li><a href="#drinks"><i class="fas fa-glass-whiskey"></i> المشروبات</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,32 +291,44 @@
             <h2><span>🍕</span> قسم البيتزا</h2>
             <div class="menu-grid">
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #FF9F43;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيتزا دجاج">
+                    </div>
+                    <div class="card-header">
                         <h3>بيتزا دجاج</h3>
                         <span class="price">15,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>بيتزا بالدجاج الطري مع الجبنة الذائبة</p>
+                        <p>بيتزا بالدجاج الطري مع الجبنة الذائبة وصلصة الطماطم والأعشاب الإيطالية</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #FF9F43;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيتزا لحم">
+                    </div>
+                    <div class="card-header">
                         <h3>بيتزا لحم</h3>
                         <span class="price">18,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>بيتزا باللحم الطازج مع الخضار</p>
+                        <p>بيتزا باللحم الطازج مع الفطر والجبنة الموزاريلا والفلفل الأخضر</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #FF9F43;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيتزا تيستي">
+                    </div>
+                    <div class="card-header">
                         <h3>بيتزا تيستي</h3>
                         <span class="price">20,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>مزيج خاص من الدجاج واللحم مع الصلصة الخاصة</p>
+                        <p>مزيج خاص من الدجاج واللحم مع الصلصة الخاصة والفطر والزيتون</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
             </div>
@@ -67,42 +338,58 @@
             <h2><span>🍔</span> قسم الوجبات</h2>
             <div class="menu-grid">
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #FF6B6B;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="برغر لحم">
+                    </div>
+                    <div class="card-header">
                         <h3>برغر لحم</h3>
                         <span class="price">12,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>برغر لحم طازج مع الخضار والصلصة</p>
+                        <p>برغر لحم طازج 150غ مع الخضار والصلصة الخاصة في خبز طري</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #FF6B6B;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="كص لحم">
+                    </div>
+                    <div class="card-header">
                         <h3>كص لحم</h3>
                         <span class="price">14,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>ساندويش لحم مشوي مع الخضار</p>
+                        <p>ساندويش لحم مشوي مع الخضار الطازجة والمايونيز والصلصة الخاصة</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #FF6B6B;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="كص دجاج">
+                    </div>
+                    <div class="card-header">
                         <h3>كص دجاج</h3>
                         <span class="price">13,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>ساندويش دجاج مشوي مع الخضار</p>
+                        <p>ساندويش دجاج مشوي مع الخضار والثومية وصلصة الزبادي</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #FF6B6B;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="صاج دجاج">
+                    </div>
+                    <div class="card-header">
                         <h3>صاج دجاج</h3>
                         <span class="price">16,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>دجاج صاج مع الخضار والصلصة الخاصة</p>
+                        <p>دجاج صاج مع الخضار والصلصة الخاصة، يُقدم مع الخبز الطازج</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
             </div>
@@ -112,22 +399,44 @@
             <h2><span>🌟</span> قسم سبيشل</h2>
             <div class="menu-grid">
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #6BCB77;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="3 قطع صدر دجاج مع فنگر">
+                    </div>
+                    <div class="card-header">
                         <h3>3 قطع صدر دجاج مع فنگر</h3>
                         <span class="price">22,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>قطع دجاج مشوية مع أصابع البطاطس المقرمشة</p>
+                        <p>قطع دجاج مشوية مع أصابع البطاطس المقرمشة، تُقدم مع الخبز والصلصة</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #6BCB77;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="تاكو">
+                    </div>
+                    <div class="card-header">
                         <h3>تاكو</h3>
                         <span class="price">18,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>تاكو لحم أو دجاج مع الخضار والصلصة</p>
+                        <p>تاكو لحم أو دجاج مع الخضار والصلصة المكسيكية الحارة</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="سلة مشاوي">
+                    </div>
+                    <div class="card-header">
+                        <h3>سلة مشاوي</h3>
+                        <span class="price">25,000 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>مزيج من اللحوم المشوية مع الخضار والبطاطس المشوية</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
             </div>
@@ -137,32 +446,58 @@
             <h2><span>🥤</span> قسم المشروبات والمقبلات</h2>
             <div class="menu-grid">
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #4D96FF;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="بيبسي">
+                    </div>
+                    <div class="card-header">
                         <h3>بيبسي</h3>
                         <span class="price">2,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>مشروب غازي منعش</p>
+                        <p>مشروب غازي منعش بحجم 330 مل</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #4D96FF;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1571805618149-3a772570ebcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="مقبلات">
+                    </div>
+                    <div class="card-header">
                         <h3>مقبلات</h3>
                         <span class="price">3,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>تشكيلة من المقبلات الشهية</p>
+                        <p>تشكيلة من المقبلات الشهية (بطاطس، زيتون، مخللات)</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
                 
                 <div class="menu-card">
-                    <div class="card-header" style="background-color: #4D96FF;">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="فريش">
+                    </div>
+                    <div class="card-header">
                         <h3>فريش</h3>
                         <span class="price">4,000 دينار</span>
                     </div>
                     <div class="card-body">
-                        <p>عصير طازج حسب الموسم</p>
+                        <p>عصير طازج حسب الموسم (برتقال، ليمون، فراولة)</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="قهوة">
+                    </div>
+                    <div class="card-header">
+                        <h3>قهوة عربية</h3>
+                        <span class="price">3,500 دينار</span>
+                    </div>
+                    <div class="card-body">
+                        <p>قهوة عربية أصيلة تُقدم مع التمر</p>
+                        <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                     </div>
                 </div>
             </div>
@@ -176,11 +511,42 @@
                 <p><span>📍</span> العنوان: كركوك - سوق الحصير</p>
                 <p><span>📞</span> الهاتف: 0770123636</p>
                 <p><span>⏰</span> أوقات العمل: 10 صباحاً - 12 منتصف الليل</p>
+                <div class="social-links" style="margin-top: 15px; display: flex; gap: 15px;">
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
             <div class="copyright">
                 <p>© 2023 Tasty FastFood. جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation for menu sections when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.menu-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
