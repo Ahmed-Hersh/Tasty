@@ -30,7 +30,7 @@
             background-color: #f5f5f5;
             color: var(--dark-color);
             line-height: 1.6;
-            font-size: 0.8rem; /* حجم الخط العام */
+            font-size: 0.8rem;
         }
         
         .container {
@@ -61,7 +61,7 @@
         
         .logo h1 {
             color: var(--primary-color);
-            font-size: 1.4rem; /* تغيير حجم العنوان إلى 14px تقريباً */
+            font-size: 1.4rem;
             font-weight: 900;
             margin-bottom: 2px;
         }
@@ -71,7 +71,6 @@
             font-size: 0.7rem;
         }
         
-        /* قائمة الروابط العلوية */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -124,7 +123,7 @@
             padding: 5px 0;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
-            font-size: 0.8rem; /* حجم خط القوائم */
+            font-size: 0.8rem;
         }
         
         nav a {
@@ -181,7 +180,7 @@
         }
         
         .card-image {
-            height: 80px; /* تصغير ارتفاع الصور */
+            height: 80px;
             overflow: hidden;
         }
         
@@ -206,7 +205,7 @@
         }
         
         .card-header h3 {
-            font-size: 0.8rem; /* حجم خط المواد */
+            font-size: 0.8rem;
             font-weight: 700;
         }
         
@@ -238,7 +237,7 @@
             margin-top: auto;
         }
         
-        .order-btn, .add-to-cart {
+        .add-to-cart {
             display: inline-block;
             border: none;
             padding: 5px 8px;
@@ -250,25 +249,16 @@
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
-            flex: 1;
-        }
-        
-        .order-btn {
-            background-color: var(--section-color);
-            color: white;
-        }
-        
-        .add-to-cart {
+            width: 100%;
             background-color: var(--dark-color);
             color: white;
         }
         
-        .order-btn:hover, .add-to-cart:hover {
+        .add-to-cart:hover {
             transform: translateY(-2px);
             opacity: 0.9;
         }
         
-        /* سلة التسوق */
         .cart-container {
             position: fixed;
             bottom: 15px;
@@ -382,6 +372,95 @@
             background-color: #4CAF50;
         }
         
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-header h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .confirm-btn, .cancel-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            flex: 1;
+        }
+        
+        .confirm-btn {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .cancel-btn {
+            background-color: #f1f1f1;
+            color: var(--dark-color);
+        }
+        
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -424,7 +503,6 @@
             }
         }
         
-        /* Animation for section when scrolled to */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -456,7 +534,6 @@
                     <p>ألذ وجبات سريعة في كركوك</p>
                 </div>
                 
-                <!-- زر القائمة العلوية -->
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
@@ -493,7 +570,6 @@
                     <div class="card-body">
                         <p>بيتزا بالدجاج الطري مع الجبنة الذائبة وصلصة الطماطم والأعشاب الإيطالية</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="بيتزا دجاج" data-price="5000">أضف للسلة</button>
                         </div>
                     </div>
@@ -510,7 +586,6 @@
                     <div class="card-body">
                         <p>بيتزا باللحم الطازج مع الفطر والجبنة الموزاريلا والفلفل الأخضر</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="بيتزا لحم" data-price="6000">أضف للسلة</button>
                         </div>
                     </div>
@@ -527,7 +602,6 @@
                     <div class="card-body">
                         <p>مزيج خاص من الدجاج واللحم مع الصلصة الخاصة والفطر والزيتون</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="بيتزا تيستي" data-price="7000">أضف للسلة</button>
                         </div>
                     </div>
@@ -549,7 +623,6 @@
                     <div class="card-body">
                         <p>برغر لحم طازج 150غ مع الخضار والصلصة الخاصة في خبز طري</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="برغر لحم" data-price="4000">أضف للسلة</button>
                         </div>
                     </div>
@@ -566,7 +639,6 @@
                     <div class="card-body">
                         <p>ساندويش لحم مشوي مع الخضار الطازجة والمايونيز والصلصة الخاصة</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="كص لحم" data-price="3500">أضف للسلة</button>
                         </div>
                     </div>
@@ -583,7 +655,6 @@
                     <div class="card-body">
                         <p>ساندويش دجاج مشوي مع الخضار والثومية وصلصة الزبادي</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="كص دجاج" data-price="3500">أضف للسلة</button>
                         </div>
                     </div>
@@ -600,7 +671,6 @@
                     <div class="card-body">
                         <p>دجاج صاج مع الخضار والصلصة الخاصة، يُقدم مع الخبز الطازج</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="صاج دجاج" data-price="4000">أضف للسلة</button>
                         </div>
                     </div>
@@ -622,7 +692,6 @@
                     <div class="card-body">
                         <p>قطع دجاج مشوية مع أصابع البطاطس المقرمشة، تُقدم مع الخبز والصلصة</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="3 قطع صدر دجاج مع فنگر" data-price="4000">أضف للسلة</button>
                         </div>
                     </div>
@@ -639,7 +708,6 @@
                     <div class="card-body">
                         <p>تاكو لحم أو دجاج مع الخضار والصلصة المكسيكية الحارة</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="تاكو" data-price="6000">أضف للسلة</button>
                         </div>
                     </div>
@@ -661,7 +729,6 @@
                     <div class="card-body">
                         <p>مشروب غازي منعش بحجم 330 مل</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="بيبسي" data-price="2000">أضف للسلة</button>
                         </div>
                     </div>
@@ -678,7 +745,6 @@
                     <div class="card-body">
                         <p>تشكيلة من المقبلات الشهية (بطاطس، زيتون، مخللات)</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="مقبلات" data-price="3000">أضف للسلة</button>
                         </div>
                     </div>
@@ -695,7 +761,6 @@
                     <div class="card-body">
                         <p>عصير طازج حسب الموسم (برتقال، ليمون، فراولة)</p>
                         <div class="card-actions">
-                            <a href="tel:0770123636" class="order-btn">اطلب الآن</a>
                             <button class="add-to-cart" data-name="فريش" data-price="4000">أضف للسلة</button>
                         </div>
                     </div>
@@ -720,12 +785,40 @@
         </div>
     </div>
     
+    <!-- Modal لتأكيد الطلب -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>معلومات الطلب</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="customerName">اسم الزبون</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">رقم الهاتف</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">العنوان</label>
+                    <input type="text" id="customerAddress" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn">إلغاء</button>
+                    <button type="submit" class="confirm-btn">تأكيد الطلب</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
     <footer>
         <div class="container">
             <div class="contact-info">
                 <h3>تواصل معنا</h3>
                 <p><span>📍</span> العنوان: كركوك - سوق الحصير</p>
-                <p><span>📞</span> الهاتف: 0770123636</p>
+                <p><span>📞</span> الهاتف: 07701236363</p>
                 <p><span>⏰</span> أوقات العمل: 10 صباحاً - 12 منتصف الليل</p>
                 <div class="social-links" style="margin-top: 10px; display: flex; gap: 10px; justify-content: center;">
                     <a href="#" style="color: white; font-size: 1rem;"><i class="fab fa-facebook"></i></a>
@@ -747,6 +840,11 @@
         const cartItemsContainer = document.querySelector('.cart-items');
         const cartTotal = document.querySelector('.cart-total');
         const cartCount = document.querySelector('.cart-count');
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        const orderModal = document.getElementById('orderModal');
+        const orderForm = document.getElementById('orderForm');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const cancelBtn = document.querySelector('.cancel-btn');
         
         // عرض/إخفاء سلة التسوق
         cartBtn.addEventListener('click', () => {
@@ -817,24 +915,68 @@
             }
         });
         
-        // إتمام الطلب
-        document.querySelector('.checkout-btn').addEventListener('click', () => {
+        // فتح نموذج الطلب عند النقر على إتمام الطلب
+        checkoutBtn.addEventListener('click', () => {
             if (cart.length === 0) {
                 alert('السلة فارغة، يرجى إضافة بعض العناصر أولاً');
                 return;
             }
             
+            cartPanel.classList.remove('show');
+            orderModal.style.display = 'flex';
+        });
+        
+        // إغلاق النموذج
+        closeModalBtn.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+        
+        cancelBtn.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+        
+        // إغلاق النموذج عند النقر خارج المحتوى
+        orderModal.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                orderModal.style.display = 'none';
+            }
+        });
+        
+        // إرسال الطلب
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            const customerAddress = document.getElementById('customerAddress').value;
+            
             const orderItems = cart.map(item => 
-                `${item.name} (${item.quantity} × ${item.price.toLocaleString()})`
-            ).join('\n');
+                `${item.name} (${item.quantity} × ${item.price.toLocaleString()} دينار)`
+            ).join('%0A');
             
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             
-            const message = `مرحباً، أريد طلب:\n${orderItems}\n\nالمجموع: ${total.toLocaleString()} دينار`;
+            const message = `
+                طلب جديد من ${customerName}
+                %0A%0A📱 رقم الهاتف: ${customerPhone}
+                %0A🏠 العنوان: ${customerAddress}
+                %0A%0A🛒 تفاصيل الطلب:
+                %0A${orderItems}
+                %0A%0A💰 المجموع: ${total.toLocaleString()} دينار
+                %0A%0Aشكراً لكم!
+            `;
             
-            // يمكنك هنا إما فتح تطبيق الواتساب أو إرسال رسالة SMS
-            // هذا مثال لإرسال رسالة عبر واتساب
-            window.open(`https://wa.me/964770123636?text=${encodeURIComponent(message)}`, '_blank');
+            // إرسال الطلب عبر واتساب
+            window.open(`https://wa.me/964770123636?text=${message}`, '_blank');
+            
+            // إغلاق النموذج وإفراغ السلة
+            orderModal.style.display = 'none';
+            cart = [];
+            updateCart();
+            orderForm.reset();
+            
+            // عرض رسالة تأكيد
+            alert('تم إرسال طلبك بنجاح! سنتصل بك قريباً لتأكيد الطلب.');
         });
         
         // رسالة تأكيد الإضافة للسلة
