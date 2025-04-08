@@ -115,15 +115,25 @@
             height: 2px;
             background: linear-gradient(to right, transparent, var(--primary-color), transparent);
             z-index: 0;
-        }
 
-        /* قائمة البيتزا المحسنة */
-        .pizza-menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin: 3rem 0;
-        }
+
+            
+        /* قائمة البيتزا المعدلة لعرض ثنائي */
+.pizza-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* عمودين فقط */
+    gap: 2.5rem;
+    margin: 3rem 0;
+    row-gap: 3rem; /* زيادة المسافة بين الصفوف */
+}
+
+/* التأقلم مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .pizza-menu {
+        grid-template-columns: 1fr; /* عمود واحد على الجوال */
+        row-gap: 2rem;
+    }
+}
 
         .pizza-item {
             background-color: var(--white);
